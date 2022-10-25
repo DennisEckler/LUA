@@ -35,3 +35,6 @@ class Kennzahlen(models.Model):
 
     def __str__(self):
         return f'Kennzahlen zu {article}'
+    
+    class Meta:
+        verbose_name_plural = 'Kennzahlen'
