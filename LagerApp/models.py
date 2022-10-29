@@ -21,6 +21,9 @@ class Article(models.Model):
     vkpreis = models.FloatField()
     storage = models.ForeignKey(Storage, default=1, on_delete=models.CASCADE)
 
+    def setAmount(self, amount):
+        self.anzahl += amount
+
     def __str__(self):
         return self.bezeichnung
 

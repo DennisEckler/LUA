@@ -1,0 +1,9 @@
+{% if article_list %}
+    <ul>
+    {% for article in article_list %}
+        <li>Artikel: {{ article.artikelnummer }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> No Articles here.</p>
+{% endif %}
