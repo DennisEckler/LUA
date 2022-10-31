@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.db import models
 
 # Create your models here.
@@ -20,6 +21,11 @@ class Article(models.Model):
     ekpreis = models.FloatField()
     vkpreis = models.FloatField()
     storage = models.ForeignKey(Storage, default=1, on_delete=models.CASCADE)
+
+    @admin.display(
+        ordering='artikelnummer',
+        description='Artikelinfotest',
+    )
 
     def setAmount(self, amount):
         self.anzahl += amount

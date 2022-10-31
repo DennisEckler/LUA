@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'LagerApp/style.css'%}">
+
 {% if article_list %}
     <ul>
     {% for article in article_list %}
