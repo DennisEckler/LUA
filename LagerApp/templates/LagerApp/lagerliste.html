@@ -1,0 +1,10 @@
+{% extends 'LagerApp/layout.html' %}
+{% block body %}
+    {% if lager_list%}
+        {% for lager in lager_list %}
+            <form action="{% url 'LagerApp:lagerplatz' lager.id%}" method="GET" class="lagerListButton">
+                <button type="submit">{{lager.lagernummer}}</button>
+            </form>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

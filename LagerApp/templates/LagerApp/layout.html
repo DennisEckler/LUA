@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>ELuAS</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <nav>
+            <a href="{% url 'LagerApp:home' %}">Home</a>
+            <a href="{% url 'LagerApp:article' %}">Article</a>
+            <a href="{% url 'LagerApp:lagerliste' %}">Lager</a>
+            <a href="{% url 'LagerApp:kennzahlen' %}">Kennzahlen</a>
+        </nav>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

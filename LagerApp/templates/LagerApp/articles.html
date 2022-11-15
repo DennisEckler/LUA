@@ -1,0 +1,12 @@
+{% extends "LagerApp/layout.html" %}
+{% block body %}
+    {% if article_list %}
+        <ul>
+        {% for article in article_list %}
+        <li>Artikel: {{article.artikelnummer}}  | {{article.bezeichnung}} | {{article.anzahl}} | {{article.anzahl}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h1>No Articles here</h1>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "LagerApp/layout.html" %}
+{% block body %}
+    <form action="{% url 'LagerApp:article' %}" method="GET" class="homeButtons">
+        <button type="submit">Article</button>
+    </form>
+    <form action="{% url 'LagerApp:lagerliste' %}" method="Get" class="homeButtons">
+        <button type="submit">Lager</button>
+    </form>
+    <form action="{% url 'LagerApp:kennzahlen'%}" method="GET" class="homeButtons">
+        <button>Kennzahlen</button>
+    </form>
+{% endblock %}
