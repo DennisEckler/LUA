@@ -3,7 +3,7 @@ import csv
 
 def importTable(artikelnummer, bezeichnung, anzahl, kategorie, lieferant, ekpreis, vkpreis, storage_id):
     try:
-        sqliteConnection = sqlite3.connect('python')
+        sqliteConnection = sqlite3.connect('db.sqlite3')
         cursor = sqliteConnection.cursor()
         print("Connected to SQlite")
         data = (artikelnummer, bezeichnung, anzahl, kategorie, lieferant, ekpreis, vkpreis, storage_id)
