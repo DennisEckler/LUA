@@ -19,7 +19,20 @@ def lagerliste(request):
     return render(request, 'LagerApp/lagerliste.html', context)
 
 def kennzahlen(request):
-    return render(request, 'LagerApp/kennzahlen.html')
+    kennzahlen = Kennzahlen.objects.all()
+    umsatz = 0
+    gewinn = 0
+    abgänge = 0
+    for kennzahl in kennzahlen:
+        umsatz += kennzahl.umsatz
+        gewinn += kennzahl.gewinn
+        abgänge += kennzahl.abgänge
+    context = {
+        'umsatz': umsatz,
+        'gewinn': gewinn,
+        'abgänge': abgänge
+    }
+    return render(request, 'LagerApp/kennzahlen.html', context)
 
 def lagerplatz(request, storage_id):
     lagerplatz = get_object_or_404(Storage, pk=storage_id)

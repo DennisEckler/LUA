@@ -1,4 +1,9 @@
 {% extends 'LagerApp/layout.html' %}
 {% block body %}
+{% if umsatz and gewinn and abgänge %}
 <h1>kennzahlen</h1>
+<p>Umsatz: {{umsatz}}</p>
+<p>Gewinn: {{gewinn}}</p>
+<p>Abgänge: {{abgänge}}
+{% endif %}
 {% endblock %}
