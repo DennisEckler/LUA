@@ -8,7 +8,7 @@ class Storage(models.Model):
     halle = models.IntegerField()
     Etage = models.IntegerField()
     Regal = models.IntegerField()
-    
+
     def __str__(self):
         return str(self.lagernummer)
 
@@ -43,7 +43,7 @@ class Kennzahlen(models.Model):
     article = models.OneToOneField(Article, on_delete=models.CASCADE, primary_key=True)
 
     def __str__(self):
-        return f'Kennzahlen zu {article}'
-    
+        return f'Kennzahlen zu {self.article}'
+
     class Meta:
         verbose_name_plural = 'Kennzahlen'

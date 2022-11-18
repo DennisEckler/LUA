@@ -1,4 +1,6 @@
 from django.shortcuts import render,get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from .models import Article, Storage, Kennzahlen
 
 # Create your views here.
@@ -21,5 +23,28 @@ def kennzahlen(request):
 
 def lagerplatz(request, storage_id):
     lagerplatz = get_object_or_404(Storage, pk=storage_id)
-    context = {'lager': lagerplatz}
+    article_list = Article.objects.filter(storage=storage_id)
+    context = {
+        'lager': lagerplatz,
+        'article_list': article_list
+    }
     return render(request, 'LagerApp/lagerplatz.html', context)
+
+def buchen(request, article_id):
+    if request.method == 'POST':
+        article = Article.objects.get(pk=article_id)
+        lagerplatz = get_object_or_404(Storage, pk=article.storage.id)
+        article_list = Article.objects.filter(storage=lagerplatz.id)
+        try:
+            amount = request.POST['menge']
+            article.anzahl += int(amount)
+
+        except ValueError as e:
+            return render(request, 'LagerApp/lagerplatz.html', {
+                'lager': lagerplatz,
+                'article_list': article_list,
+                'error_message': "OnlyNumbers",
+            })
+        else:
+            article.save()
+            return HttpResponseRedirect(reverse('LagerApp:lagerplatz', args=(lagerplatz.id,)))

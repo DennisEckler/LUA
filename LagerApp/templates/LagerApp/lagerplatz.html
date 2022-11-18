@@ -1,5 +1,32 @@
 {% extends 'LagerApp/layout.html' %}
 {% block body %}
-<h1>{{lager.lagernummer}}</h1>
-<h1>lagerplatz</h1>
+<h1>Lagerplatz: {{lager.lagernummer}}</h1>
+{% if article_list %}
+    <table>
+        <tr>
+            <th>Artikelnummer</th>
+            <th>Bezeichnung</th>
+            <th>Lagerbestand</th>
+        </tr>
+        {% for article in article_list%}
+        <tr>
+            <td>{{article.artikelnummer}}</td>
+            <td>{{article.bezeichnung}}</td>
+            <td>{{article.anzahl}}</td>
+            <td>
+                <form action={% url 'LagerApp:buchen' article.id %} method="post">
+                    {% csrf_token %}
+                    <input type="text" name="menge" {% if error_message %}
+                    placeholder={{error_message}}
+                    {% endif %}
+                    >
+                    <button type="submit">Buchen</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor%}
+    </table>
+{% else %}
+    <h1>No Articles here</h1>
+{% endif %}
 {% endblock %}
