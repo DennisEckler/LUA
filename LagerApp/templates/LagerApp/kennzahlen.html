@@ -1,5 +1,11 @@
 {% extends 'LagerApp/layout.html' %}
 {% block body %}
+<div class="btn-group">
+    <a class="btn btn-primary" href="{% url 'LagerApp:home' %}">Home</a>
+    <a class="btn btn-primary" href="{% url 'LagerApp:article' %}">Article</a>
+    <a class="btn btn-primary" href="{% url 'LagerApp:lagerliste' %}">Lager</a>
+    <a class="btn btn-primary active" href="{% url 'LagerApp:kennzahlen' %}">Kennzahlen</a>
+</div>
 {% if umsatz and gewinn and abgänge %}
 <h1>kennzahlen</h1>
 <p>Umsatz: {{umsatz}}</p>

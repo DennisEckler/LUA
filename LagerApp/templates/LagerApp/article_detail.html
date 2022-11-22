@@ -1,0 +1,30 @@
+{% extends 'LagerApp/layout.html'%}
+{% block body %}
+{% if article %}
+<h1>Detail zum Artikel: {{article.artikelnummer}}</h1>
+
+<table>
+    <tr>
+        <th>Bezeichnung:</th><td>{{article.bezeichnung}}</td>
+    </tr>
+    <tr>
+        <th>auf Lager:</th><td>{{article.anzahl}}</td>
+    </tr>
+    <tr>
+        <th>Kategorie:</th><td>{{article.kategorie}}</td>
+    </tr>
+    <tr>
+        <th>Lieferant:</th><td>{{article.lieferant}}</td>
+    </tr>
+    <tr>
+        <th>Einkaufpreis:</th><td>{{article.ekpreis}}</td>
+    </tr>
+        <th>Verkaufpreis:</th><td>{{article.vkpreis}}</td>
+    </tr>
+    <tr>
+        <th>Bezeichnung:</th><td>{{article.bezeichnung}}</td>
+    </tr>
+</table>
+
+{% endif %}
+{% endblock %}
