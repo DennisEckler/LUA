@@ -1,5 +1,11 @@
 {% extends 'LagerApp/layout.html'%}
 {% block body %}
+<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <a class="btn btn-primary active btn-lg" href="{% url 'LagerApp:home' %}">Home</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'LagerApp:article' %}">Article</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'LagerApp:lagerliste' %}">Lager</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'LagerApp:kennzahlen' %}">Kennzahlen</a>
+</div>
 {% if article %}
 <h1>Detail zum Artikel: {{article.artikelnummer}}</h1>
 

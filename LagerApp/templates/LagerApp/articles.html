@@ -1,10 +1,10 @@
 {% extends "LagerApp/layout.html" %}
 {% block body %}
-    <div class="btn-group">
-        <a class="btn btn-primary" href="{% url 'LagerApp:home' %}">Home</a>
-        <a class="btn btn-primary active" href="{% url 'LagerApp:article' %}">Article</a>
-        <a class="btn btn-primary" href="{% url 'LagerApp:lagerliste' %}">Lager</a>
-        <a class="btn btn-primary" href="{% url 'LagerApp:kennzahlen' %}">Kennzahlen</a>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <a class="btn btn-primary btn-lg" href="{% url 'LagerApp:home' %}">Home</a>
+        <a class="btn btn-primary btn-lg active" href="{% url 'LagerApp:article' %}">Article</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'LagerApp:lagerliste' %}">Lager</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'LagerApp:kennzahlen' %}">Kennzahlen</a>
     </div>
     {% if article_list %}
         <table class="table table-dark table-hover table-striped">
@@ -22,7 +22,7 @@
                     <td>{{article.artikelnummer}}</td>
                     <td>{{article.bezeichnung}}</td>
                     <td>{{article.anzahl}}</td>
-                    <td><a href="{% url 'LagerApp:detail' article.id %}">Details</a><td>
+                    <td><a class="btn btn-primary btn-lg" href="{% url 'LagerApp:detail' article.id %}">Details</a><td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -1,15 +1,15 @@
 {% extends 'LagerApp/layout.html' %}
 {% block body %}
-    <div class="btn-group">
-        <a class="btn btn-primary" href="{% url 'LagerApp:home' %}">Home</a>
-        <a class="btn btn-primary" href="{% url 'LagerApp:article' %}">Article</a>
-        <a class="btn btn-primary active" href="{% url 'LagerApp:lagerliste' %}">Lager</a>
-        <a class="btn btn-primary" href="{% url 'LagerApp:kennzahlen' %}">Kennzahlen</a>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <a class="btn btn-primary btn-lg" href="{% url 'LagerApp:home' %}">Home</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'LagerApp:article' %}">Article</a>
+        <a class="btn btn-primary btn-lg active" href="{% url 'LagerApp:lagerliste' %}">Lager</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'LagerApp:kennzahlen' %}">Kennzahlen</a>
     </div>
     {% if lager_list%}
         {% for lager in lager_list %}
-            <form class="d-grid gap-2 col-6 mx-auto" action="{% url 'LagerApp:lagerplatz' lager.id%}" method="GET" class="lagerListButton">
-                <button type="submit">{{lager.lagernummer}}</button>
+            <form action="{% url 'LagerApp:lagerplatz' lager.id%}" method="GET">
+                <button class="btn btn-primary d-grid gap-2 col-6 mx-auto" type="submit">{{lager.lagernummer}}</button>
             </form>
         {% endfor %}
     {% endif %}
